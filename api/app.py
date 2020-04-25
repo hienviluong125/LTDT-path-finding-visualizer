@@ -28,29 +28,20 @@ def index():
   finder = None
 
   if finder_name == 'a_star':
-    print("FINDER => ")
-    print('a_star')
     finder = AStarFinder(diagonal_movement=diagonal_movement)
   elif finder_name == 'breadth_first':
-    print("FINDER => ")
-    print('breadth_first')
     finder = BreadthFirstFinder(diagonal_movement=diagonal_movement)
   elif finder_name == 'bi_a_star':
-    print("FINDER => ")
-    print('bi_a_star')
     finder = BiAStarFinder(diagonal_movement=diagonal_movement)
   elif finder_name == 'best_first':
-    print("FINDER => ")
-    print('best_first')
     finder = BestFirst(diagonal_movement=diagonal_movement)
   elif finder_name == 'dijkstra':
-    print("FINDER => ")
-    print('dijkstra')
     finder = DijkstraFinder(diagonal_movement=diagonal_movement)
   elif finder_name == 'ida_star':
-    print("FINDER => ")
-    print('ida_star')
     finder = IDAStarFinder(diagonal_movement=diagonal_movement)
 
   path, runs = finder.find_path(start, end, grid)
   return jsonify({"path": path, "steps": len(path), "finder_name": finder_name})
+
+if __name__ == '__main__':
+  app.run()
